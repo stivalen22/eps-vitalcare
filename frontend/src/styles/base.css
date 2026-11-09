@@ -1,0 +1,147 @@
+/* ===== Variables de diseño (identidad EPS VitalCare) ===== */
+:root {
+  --blue-900: #0b2a5b;
+  --blue-800: #0f3a7a;
+  --blue-700: #1559c7;
+  --blue-600: #1f6fe0;
+  --blue-100: #e3edfc;
+  --blue-50: #f1f6fe;
+
+  --gray-900: #1b2330;
+  --gray-700: #3d4757;
+  --gray-500: #5b6576;
+  --gray-300: #cfd6e0;
+  --gray-200: #e5e9f0;
+  --gray-100: #f2f4f8;
+  --white: #ffffff;
+
+  --green-700: #18794e;
+  --green-100: #e3f5ec;
+  --red-700: #c0352b;
+  --red-100: #fde8e6;
+  --amber-700: #9a5b00;
+  --amber-100: #fff3d6;
+  --cyan-700: #0d6a86;
+  --cyan-100: #e0f3f8;
+
+  --bg: var(--gray-100);
+  --surface: var(--white);
+  --text: var(--gray-900);
+  --text-muted: var(--gray-500);
+  --border: var(--gray-200);
+  --primary: var(--blue-700);
+  --primary-hover: var(--blue-800);
+
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08);
+  --shadow-lg: 0 12px 32px rgba(16, 24, 40, 0.18);
+  --sidebar-w: 248px;
+  --font: 'Segoe UI', system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 0.5rem;
+  line-height: 1.25;
+  color: var(--gray-900);
+}
+h1 {
+  font-size: 1.55rem;
+}
+h2 {
+  font-size: 1.1rem;
+}
+h3 {
+  font-size: 1rem;
+}
+p {
+  margin: 0 0 0.5rem;
+}
+a {
+  color: var(--primary);
+}
+
+input,
+select,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.55rem 0.75rem;
+  border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  color: var(--text);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--blue-600);
+  box-shadow: 0 0 0 3px rgba(31, 111, 224, 0.18);
+}
+input[type='checkbox'] {
+  width: auto;
+}
+textarea {
+  resize: vertical;
+}
+:focus-visible {
+  outline: 2px solid var(--blue-600);
+  outline-offset: 2px;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+.small {
+  font-size: 0.85rem;
+}
+.nowrap {
+  white-space: nowrap;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.spin {
+  animation: spin 1s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

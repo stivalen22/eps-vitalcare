@@ -1,0 +1,49 @@
+# Docker es OPCIONAL. Uso más común: solo la base de datos
+#   docker compose up -d db
+# Todo el sistema (base de datos + API + frontend):
+#   docker compose --profile app up --build
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: vitalcare-db
+    environment:
+      POSTGRES_USER: vitalcare
+      POSTGRES_PASSWORD: vitalcare_dev   # solo para desarrollo local
+      POSTGRES_DB: vitalcare
+    ports:
+      - "5432:5432"
+    volumes:
+      - vitalcare_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vitalcare -d vitalcare"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  backend:
+    profiles: ["app"]
+    build: ./backend
+    environment:
+      DATABASE_URL: postgresql+psycopg://vitalcare:vitalcare_dev@db:5432/vitalcare
+      SECRET_KEY: ${SECRET_KEY:-cambie-esta-clave-en-docker}
+      CORS_ORIGINS: http://localhost:5173
+      SEED_DEMO_PASSWORD: ${SEED_DEMO_PASSWORD:-Demo12345*}
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  frontend:
+    profiles: ["app"]
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: http://localhost:8000/api/v1
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
+
+volumes:
+  vitalcare_pgdata:

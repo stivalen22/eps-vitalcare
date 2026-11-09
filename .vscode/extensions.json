@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "ms-python.python",
+    "ms-python.vscode-pylance",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "rangav.vscode-thunder-client",
+    "mtxr.sqltools",
+    "mtxr.sqltools-driver-pg",
+    "qwtel.sqlite-viewer"
+  ]
+}

@@ -1,0 +1,30 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+
+# Bases de datos locales
+*.db
+*.sqlite3
+
+# Variables de entorno (NUNCA subir secretos)
+.env
+.env.*
+!.env.example
+
+# Node / Vite
+node_modules/
+dist/
+
+# Editor y sistema
+.DS_Store
+Thumbs.db
+.idea/
+
+# Transferencias temporales
+_transfer/
+
+# Cachés de herramientas
+.ruff_cache/
